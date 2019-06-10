@@ -1,9 +1,9 @@
 resources:
-  - name: gitResource
+  - name: gitResource1
     type: GitRepo
 #     repoPath: bindushree16/test_c7java
     configuration:
-      gitProvider: ranjan_github
+      gitProvider: bindu_github
       path: bindushree16/test_c7java
       branches:
         only: master
@@ -17,7 +17,7 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: gitResource
+            - name: gitResource1
         execution:
           onExecute:
             - printenv
