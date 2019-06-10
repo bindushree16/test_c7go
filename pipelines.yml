@@ -1,5 +1,5 @@
 resources:
-  - name: gitResource1
+  - name: gitResource12
     type: GitRepo
 #     repoPath: bindushree16/test_c7java
     configuration:
@@ -17,7 +17,7 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: gitResource1
+            - name: gitResource12
         execution:
           onExecute:
             - printenv
