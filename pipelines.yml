@@ -7,6 +7,8 @@ resources:
       path: bindushree16/test_c7java
       branches:
         only: master
+      buildOn:
+         commit: false  
     version:
       sha: master
       
