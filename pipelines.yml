@@ -22,7 +22,7 @@ pipelines:
           onExecute:
             - printenv
             - pushd $res_gitResource_resPath
-            - docker build -t=test_c7java/test:dev .
+            - docker build -t=test:dev .
       - name: test1
         type: Bash
         execution:
@@ -38,6 +38,6 @@ pipelines:
             type: image
             image:
               custom:
-                name: test_c7java/test
+                name: test
                 tag: dev
                 autoPull: false
