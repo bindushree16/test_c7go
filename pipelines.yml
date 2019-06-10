@@ -21,13 +21,17 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - pushd $res_gitResource12_resPath
+            - pushd $res_gitResource12_resourcePath
             - docker build -t=test:dev .
       - name: test1
         type: Bash
         execution:
           onExecute:
             - _set_jdk openjdk8
+            - java --version
+            - echo $JAVA_HOME
+            - echo $PATH
+            - _set_jdk openjdk11
             - java --version
             - echo $JAVA_HOME
             - echo $PATH
