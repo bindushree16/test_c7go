@@ -21,7 +21,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - pushd $res_gitResource12_resourcePath
+            - pushd $res_gitResource1211_resourcePath
             - docker build -t=test:dev .
       - name: test1
         type: Bash
