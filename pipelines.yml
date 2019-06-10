@@ -27,14 +27,20 @@ pipelines:
         type: Bash
         execution:
           onExecute:
-#             - _set_jdk openjdk8
-#             - java --version
-#             - echo $JAVA_HOME
-#             - echo $PATH
             - _set_jdk openjdk11
             - java --version
             - echo $JAVA_HOME
             - echo $PATH
+            - ant -version
+            - mvn --verion 
+            - gradle --version
+            - _set_jdk openjdk8
+            - java --version
+            - echo $JAVA_HOME
+            - echo $PATH
+            - ant -version
+            - mvn --verion 
+            - gradle --version
         configuration:
           inputSteps:
             - name: test
