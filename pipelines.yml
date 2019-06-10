@@ -32,14 +32,14 @@ pipelines:
             - echo $JAVA_HOME
             - echo $PATH
             - ant -version
-            - mvn --verion 
+            - mvn --version 
             - gradle --version
             - _set_jdk openjdk8
             - java --version
             - echo $JAVA_HOME
             - echo $PATH
             - ant -version
-            - mvn --verion 
+            - mvn --version 
             - gradle --version
         configuration:
           inputSteps:
