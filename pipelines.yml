@@ -1,0 +1,43 @@
+resources:
+  - name: gitResource
+    type: GitRepo
+#     repoPath: bindushree16/test_c7java
+    configuration:
+      gitProvider: ranjan_github
+      path: bindushree16/test_c7java
+      branches:
+        only: master
+    version:
+      sha: master
+      
+pipelines:
+  - name: pipelineQA
+    steps:
+      - name: test
+        type: Bash
+        configuration:
+          inputResources:
+            - name: gitResource
+        execution:
+          onExecute:
+            - printenv
+            - pushd $res_gitResource_resPath
+            - docker build -t=test_c7java/test:dev .
+      - name: test1
+        type: Bash
+        execution:
+          onExecute:
+            - _set_jdk openjdk8
+            - java --version
+            - echo $JAVA_HOME
+            - echo $PATH
+        configuration:
+          inputSteps:
+            - name: test
+          runtime:
+            type: image
+            image:
+              custom:
+                name: test_c7java/test
+                tag: dev
+                autoPull: false
