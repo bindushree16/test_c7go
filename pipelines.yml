@@ -24,9 +24,8 @@ pipelines:
         execution:
           onExecute:
             - printenv
-#             - pushd $res_gitResource1211_resourcePath
-#             - 
-#             - docker build -t=test:dev .
+            - pushd $res_gitResource1211_resourcePath
+            - docker build -t=test:dev .
             
       - name: test1
         type: Bash
@@ -38,9 +37,9 @@ pipelines:
             type: image
             image:
               custom:
-                name: drydock/c7java
-                tag: master
-                autoPull: true
+                name: test
+                tag: dev
+                autoPull: false
         execution:
           onExecute:
             - _set_jdk openjdk11
@@ -49,9 +48,7 @@ pipelines:
             - echo $PATH
             - ant -version
             - mvn --version 
-            - gradle --version
-            - update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-8-openjdk-amd64/bin/java 
-            - update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-8-openjdk-amd64/bin/javac             
+            - gradle --version            
             - _set_jdk openjdk8
             - java --version
             - echo $JAVA_HOME
