@@ -11,3 +11,5 @@ mv jdk-"$OPENJDK_VERSION"/ java-"$JAVA_VERSION"-openjdk-amd64
 
 sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-"$JAVA_VERSION"-openjdk-amd64/bin/java 1
 sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-"$JAVA_VERSION"-openjdk-amd64/bin/javac 1
+sudo update-alternatives --set java /usr/lib/jvm/java-"$JAVA_VERSION"-openjdk-amd64/bin/java
+sudo update-alternatives --set javac /usr/lib/jvm/java-"$JAVA_VERSION"-openjdk-amd64/bin/javac
