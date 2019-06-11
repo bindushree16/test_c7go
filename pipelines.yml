@@ -26,7 +26,7 @@ pipelines:
             - printenv
             - pushd $res_gitResource1211_resourcePath
             - docker build -t=testc7:dev .
-            
+
       - name: test1
         type: Bash
         configuration:
