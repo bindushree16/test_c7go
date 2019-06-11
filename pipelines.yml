@@ -25,7 +25,7 @@ pipelines:
           onExecute:
             - printenv
             - pushd $res_gitResource1211_resourcePath
-            - docker build -t=test:dev .
+            - docker build -t=testc7:dev .
             
       - name: test1
         type: Bash
@@ -37,7 +37,7 @@ pipelines:
             type: image
             image:
               custom:
-                name: test
+                name: testc7
                 tag: dev
                 autoPull: false
         execution:
