@@ -26,8 +26,20 @@ pipelines:
             - printenv
             - pushd $res_gitResource1211_resourcePath
             - docker build -t=test:dev .
+            
       - name: test1
         type: Bash
+        configuration:
+          nodePool: bindu_test
+          inputSteps:
+            - name: test
+          runtime:
+            type: image
+            image:
+              custom:
+                name: test
+                tag: dev
+                autoPull: false
         execution:
           onExecute:
             - _set_jdk openjdk11
@@ -44,13 +56,3 @@ pipelines:
             - ant -version
             - mvn --version 
             - gradle --version
-        configuration:
-          inputSteps:
-            - name: test
-          runtime:
-            type: image
-            image:
-              custom:
-                name: test
-                tag: dev
-                autoPull: false
