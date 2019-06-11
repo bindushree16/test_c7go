@@ -4,7 +4,7 @@ resources:
 #     repoPath: bindushree16/test_c7java
     configuration:
       gitProvider: bindu_github
-      path: bindushree16/test_c7java
+      path: bindushree16/c7java
       branches:
         only: master
       buildOn:
