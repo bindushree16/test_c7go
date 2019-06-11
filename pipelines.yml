@@ -50,6 +50,8 @@ pipelines:
             - ant -version
             - mvn --version 
             - gradle --version
+            - update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-8-openjdk-amd64/bin/java 
+            - update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-8-openjdk-amd64/bin/javac             
             - _set_jdk openjdk8
             - java --version
             - echo $JAVA_HOME
