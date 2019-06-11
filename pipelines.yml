@@ -29,6 +29,7 @@ pipelines:
         type: Bash
         execution:
           onExecute:
+            - java --version
             - _set_jdk openjdk11
             - java --version
             - echo $JAVA_HOME
