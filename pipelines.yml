@@ -19,18 +19,6 @@ pipelines:
         type: Bash
         configuration:
           nodePool: varsha_u16
-          inputResources:
-            - name: gitResource
-        execution:
-          onExecute:
-            - printenv
-#             - pushd $res_gitResource_resourcePath
-#             - docker build -t=testc7:dev .
-
-      - name: test1
-        type: Bash
-        configuration:
-          nodePool: varsha_u16
           inputSteps:
             - name: test
           runtime:
