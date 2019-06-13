@@ -19,8 +19,8 @@ pipelines:
         type: Bash
         configuration:
           nodePool: varsha_u16
-          inputSteps:
-            - name: test
+          inputResources:
+            - name: gitResource
           runtime:
             type: image
             image:
