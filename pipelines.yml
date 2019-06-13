@@ -18,7 +18,7 @@ pipelines:
       - name: test
         type: Bash
         configuration:
-#           nodePool: varsha_u16
+          nodePool: kermit_centos_pool
           inputResources:
             - name: gitResource
           runtime:
@@ -57,7 +57,7 @@ pipelines:
       - name: go
         type: Bash
         configuration:
-#           nodePool: varsha_u16           
+          nodePool: kermit_centos_pool           
           inputSteps:
             - name: test   
           runtime:
@@ -85,7 +85,7 @@ pipelines:
       - name: cpp
         type: Bash
         configuration:
-#           nodePool: varsha_u16           
+          nodePool: kermit_centos_pool           
           inputSteps:
             - name: go      
           runtime:
