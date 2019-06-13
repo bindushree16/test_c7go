@@ -55,7 +55,7 @@ pipelines:
       - name: go
         type: Bash
         configuration:
-          nodePool: vijay_node           
+          nodePool: varsha_u16           
           inputSteps:
             - name: test   
           runtime:
@@ -80,7 +80,7 @@ pipelines:
       - name: cpp
         type: Bash
         configuration:
-          nodePool: vijay_node           
+          nodePool: varsha_u16           
           inputSteps:
             - name: go      
           runtime:
