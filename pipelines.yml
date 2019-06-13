@@ -26,7 +26,8 @@ pipelines:
             image:
               auto:
                 language: java
-                version: 8
+                version: 
+                  - 8
 #               custom:
 #                 name: drydock/u18java
 #                 tag: master
@@ -64,7 +65,8 @@ pipelines:
             image:
               auto:
                 language: go
-                versions: 1.12.5
+                versions: 
+                  - 1.12.5
 #                 versions:            
 #               custom:
 #                 name: drydock/u18go
@@ -91,7 +93,8 @@ pipelines:
             image:
               auto:
                 language: c
-                versions: 9.1.0
+                versions: 
+                  - 9.1.0
 #                 versions:            
 #               custom:
 #                 name: drydock/u18cpp
