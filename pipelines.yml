@@ -15,54 +15,56 @@ resources:
 pipelines:
   - name: pipeline
     steps:
-#       - name: test
-#         type: Bash
-#         configuration:
-#           nodePool: varsha_u16
-#           inputResources:
-#             - name: gitResource
-#           runtime:
-#             type: image
-#             image:
-#               auto:
-#                 language: java
-# #               custom:
-# #                 name: drydock/u18java
-# #                 tag: master
-# #                 autoPull: true
-# #                 name: testc7
-# #                 tag: dev
-# #                 autoPull: false
-#         execution:
-#           onExecute:
-#             - echo "hi"
-#             - java -version
-#             - _set_jdk openjdk11
-#             - java -version
-#             - echo $JAVA_HOME
-#             - echo $PATH
-#             - ant -version
-#             - mvn --version 
-#             - gradle --version            
-#             - _set_jdk openjdk8
-#             - java -version
-#             - echo $JAVA_HOME
-#             - echo $PATH
-#             - ant -version
-#             - mvn --version 
-#             - gradle --version
+      - name: test
+        type: Bash
+        configuration:
+          nodePool: varsha_u16
+          inputResources:
+            - name: gitResource
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                version: 8
+#               custom:
+#                 name: drydock/u18java
+#                 tag: master
+#                 autoPull: true
+#                 name: testc7
+#                 tag: dev
+#                 autoPull: false
+        execution:
+          onExecute:
+            - echo "hi"
+            - java -version
+            - _set_jdk openjdk11
+            - java -version
+            - echo $JAVA_HOME
+            - echo $PATH
+            - ant -version
+            - mvn --version 
+            - gradle --version            
+            - _set_jdk openjdk8
+            - java -version
+            - echo $JAVA_HOME
+            - echo $PATH
+            - ant -version
+            - mvn --version 
+            - gradle --version
             
       - name: go
         type: Bash
         configuration:
           nodePool: varsha_u16           
-          inputResources:
-            - name: gitResource   
+          inputSteps:
+            - name: test   
           runtime:
             type: image
             image:
               auto:
                 language: go
+                versions: 1.12.5
 #                 versions:            
 #               custom:
 #                 name: drydock/u18go
@@ -89,6 +91,7 @@ pipelines:
             image:
               auto:
                 language: c
+                versions: 9.1.0
 #                 versions:            
 #               custom:
 #                 name: drydock/u18cpp
