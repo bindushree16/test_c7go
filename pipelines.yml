@@ -25,9 +25,9 @@ pipelines:
             type: image
             image:
               auto:
-                language: java
-                version: 
-                  - openjdk8
+                language: openjdk8
+#                 version: 
+#                   - openjdk8
 #               custom:
 #                 name: drydock/u18java
 #                 tag: master
