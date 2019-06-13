@@ -63,3 +63,49 @@ pipelines:
             - ant -version
             - mvn --version 
             - gradle --version
+            
+      - name: go
+        type: Bash
+        configuration:
+          nodePool: vijay_node           
+          inputSteps:
+            - name: java      
+          runtime:
+            type: image
+            image:
+              auto:
+                language: go
+#                 versions:            
+#               custom:
+#                 name: drydock/u18go
+#                 tag: master
+#                 autoPull: true
+        execution:
+          onExecute:
+            - source /root/.gvm/scripts/gvm
+            - gvm list
+            - go version
+            - gvm use 1.11.10 
+            - go version
+            - gvm use 1.12.5
+            - go version                
+      - name: cpp
+        type: Bash
+        configuration:
+          nodePool: vijay_node           
+          inputSteps:
+            - name: go      
+          runtime:
+            type: image
+            image:
+              auto:
+                language: c
+#                 versions:            
+#               custom:
+#                 name: drydock/u18cpp
+#                 tag: master
+#                 autoPull: true
+        execution:
+          onExecute:
+            - gcc --version
+            - clang --version     
