@@ -15,58 +15,58 @@ resources:
 pipelines:
   - name: pipeline
     steps:
-      - name: test
+      - name: test1
         type: Bash
         configuration:
-          nodePool: kermit_centos_pool
+          nodePool: bindu_testnode
           inputResources:
             - name: gitResource
           runtime:
-            type: image
-            image:
-              auto:
-                language: java
-                versions: 
-                  - openjdk8
+            type: host
+#             image:
+#               auto:
+#                 language: java
+#                 versions: 
+#                   - openjdk8
 #               custom:
 #                 name: drydock/u18java
 #                 tag: master
 #                 autoPull: true
 #                 name: testc7
-#                 tag: dev
+#                 tag: de
 #                 autoPull: false
         execution:
           onExecute:
             - echo "hi"
-            - java -version
-            - _set_jdk openjdk11
-            - java -version
-            - echo $JAVA_HOME
-            - echo $PATH
-            - ant -version
-            - mvn --version 
-            - gradle --version            
-            - _set_jdk openjdk8
-            - java -version
-            - echo $JAVA_HOME
-            - echo $PATH
-            - ant -version
-            - mvn --version 
-            - gradle --version
+#             - java -version
+#             - _set_jdk openjdk11
+#             - java -version
+#             - echo $JAVA_HOME
+#             - echo $PATH
+#             - ant -version
+#             - mvn --version 
+#             - gradle --version            
+#             - _set_jdk openjdk8
+#             - java -version
+#             - echo $JAVA_HOME
+#             - echo $PATH
+#             - ant -version
+#             - mvn --version 
+#             - gradle --version
             
-      - name: go
+      - name: test2
         type: Bash
         configuration:
-          nodePool: kermit_centos_pool           
+          nodePool: bindu_testnode           
           inputSteps:
-            - name: test   
+            - name: test 1  
           runtime:
             type: image
             image:
               auto:
-                language: go
-                versions: 
-                  - 1.12.5
+                language: java
+#                 versions: 
+#                   - 1.12.5
 #                 versions:            
 #               custom:
 #                 name: drydock/u18go
@@ -74,25 +74,26 @@ pipelines:
 #                 autoPull: true
         execution:
           onExecute:
-            - source /root/.gvm/scripts/gvm
-            - gvm list
-            - go version
-            - gvm use 1.11.10 
-            - go version
-            - gvm use 1.12.5
-            - go version   
+            - echo "hi"
+#             - source /root/.gvm/scripts/gvm
+#             - gvm list
+#             - go version
+#             - gvm use 1.11.10 
+#             - go version
+#             - gvm use 1.12.5
+#             - go version   
             
-      - name: cpp
+      - name: test3
         type: Bash
         configuration:
-          nodePool: kermit_centos_pool           
+          nodePool: bindu_testnode           
           inputSteps:
             - name: go      
           runtime:
             type: image
             image:
               auto:
-                language: c
+                language: java
 #                 versions: 
 #                   - 7.0.1
 #                 versions:            
@@ -102,5 +103,6 @@ pipelines:
 #                 autoPull: true
         execution:
           onExecute:
-            - gcc --version
-            - clang --version     
+            - echo "hi"
+#             - gcc --version
+#             - clang --version     
