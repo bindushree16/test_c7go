@@ -23,86 +23,36 @@ pipelines:
             - name: gitResource
           runtime:
             type: host
-#             image:
-#               auto:
-#                 language: java
-#                 versions: 
-#                   - openjdk8
-#               custom:
-#                 name: drydock/u18java
-#                 tag: master
-#                 autoPull: true
-#                 name: testc7
-#                 tag: de
-#                 autoPull: false
         execution:
           onExecute:
             - echo "hi"
-#             - java -version
-#             - _set_jdk openjdk11
-#             - java -version
-#             - echo $JAVA_HOME
-#             - echo $PATH
-#             - ant -version
-#             - mvn --version 
-#             - gradle --version            
-#             - _set_jdk openjdk8
-#             - java -version
-#             - echo $JAVA_HOME
-#             - echo $PATH
-#             - ant -version
-#             - mvn --version 
-#             - gradle --version
             
       - name: test2
         type: Bash
         configuration:
           nodePool: bindu_testnode           
           inputSteps:
-            - name: test 1  
+            - name: test1  
           runtime:
             type: image
             image:
               auto:
                 language: java
-#                 versions: 
-#                   - 1.12.5
-#                 versions:            
-#               custom:
-#                 name: drydock/u18go
-#                 tag: master
-#                 autoPull: true
         execution:
           onExecute:
             - echo "hi"
-#             - source /root/.gvm/scripts/gvm
-#             - gvm list
-#             - go version
-#             - gvm use 1.11.10 
-#             - go version
-#             - gvm use 1.12.5
-#             - go version   
             
       - name: test3
         type: Bash
         configuration:
           nodePool: bindu_testnode           
           inputSteps:
-            - name: go      
+            - name: test2      
           runtime:
             type: image
             image:
               auto:
                 language: java
-#                 versions: 
-#                   - 7.0.1
-#                 versions:            
-#               custom:
-#                 name: drydock/u18cpp
-#                 tag: master
-#                 autoPull: true
         execution:
           onExecute:
-            - echo "hi"
-#             - gcc --version
-#             - clang --version     
+            - echo "hi"    
